@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tra cứu nhanh lịch khai giảng các lớp CFA từ hệ thống OPS.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://uat-ops-be.sapp.edu.vn">
+  <title>Lịch khai giảng CFA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section id="login-view" class="login-view" aria-labelledby="login-title">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <div>
+          <p class="eyebrow">SAPP ACADEMY</p>
+          <h1 id="login-title">Lịch khai giảng CFA</h1>
+          <p class="subheading">Tra cứu dữ liệu thật từ hệ thống OPS.</p>
+        </div>
+      </div>
+
+      <form id="login-form" class="card login-card">
+        <div class="environment-row">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Môi trường thử nghiệm UAT</span>
+        </div>
+        <div class="field">
+          <label for="username">Tên đăng nhập OPS</label>
+          <input id="username" name="username" type="text" autocomplete="username" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="password">Mật khẩu</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" maxlength="100" required>
+        </div>
+        <p id="login-error" class="form-message error-message" role="alert" hidden></p>
+        <button id="login-button" class="button button-primary" type="submit">Đăng nhập</button>
+        <p class="security-note">Thông tin đăng nhập chỉ dùng để kết nối OPS và không được lưu trên trình duyệt.</p>
+      </form>
+    </section>
+
+    <section id="app-view" class="app-view" aria-labelledby="page-title" hidden>
+      <header class="app-header">
+        <div>
+          <p class="eyebrow">SAPP ACADEMY · UAT</p>
+          <h1 id="page-title">Lịch khai giảng CFA</h1>
+          <p class="subheading">Các lớp công khai có ngày khai giảng từ hôm nay.</p>
+        </div>
+        <button id="logout-button" class="button button-secondary button-compact" type="button">Đăng xuất</button>
+      </header>
+
+      <section class="card filters" aria-labelledby="filter-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="filter-title">Bộ lọc</h2>
+            <p>Tìm nhanh lớp phù hợp để tư vấn.</p>
+          </div>
+          <button id="refresh-button" class="button button-ghost button-compact" type="button">Tải lại</button>
+        </div>
+        <div class="filter-grid">
+          <div class="field">
+            <label for="level-filter">Level</label>
+            <select id="level-filter">
+              <option value="">Tất cả Level</option>
+              <option value="1">Level 1</option>
+              <option value="2">Level 2</option>
+              <option value="3">Level 3</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mode-filter">Hình thức học</label>
+            <select id="mode-filter">
+              <option value="">Tất cả hình thức</option>
+              <option value="ONLINE">Record Online</option>
+              <option value="LIVE_ONLINE">Live Online</option>
+              <option value="OFFLINE">Face to face</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="region-filter">Khu vực</label>
+            <select id="region-filter">
+              <option value="">Tất cả khu vực</option>
+              <option value="HANOI">Hà Nội</option>
+              <option value="HCM">TP.HCM</option>
+            </select>
+          </div>
+        </div>
+        <p class="filter-note">Lớp online không gắn cơ sở vẫn được hiển thị khi lọc theo khu vực.</p>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="results-heading">
+          <h2 id="results-title">Lớp sắp khai giảng</h2>
+          <p id="result-summary" aria-live="polite"></p>
+        </div>
+        <div id="results" class="results" aria-live="polite" aria-busy="false"></div>
+      </section>
+    </section>
+  </main>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

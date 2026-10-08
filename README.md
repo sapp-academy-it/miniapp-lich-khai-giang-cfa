@@ -20,6 +20,8 @@ Trong repo, mở **Settings → Pages**, chọn **Source: GitHub Actions**. OPS 
 
 `https://sapp-academy-it.github.io`
 
+Workflow `.github/workflows/pages.yml` sẽ tự triển khai lại khi nhánh `main` có thay đổi.
+
 ## Quy ước dữ liệu
 
 - `ONLINE`: Record Online.
